@@ -44,7 +44,6 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_link_text("groups").click()
 
     def login(self, wd):
-        # login
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys("admin")
@@ -53,7 +52,6 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
     def open_home_page(self, wd):
-        # open home page
         wd.get("http://localhost/addressbook/")
 
     def tearDown(self):
