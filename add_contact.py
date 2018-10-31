@@ -16,7 +16,9 @@ class AddContact(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.add_user(wd)
+        self.add_user(wd, firstname="Pierre", middlename="Nik", lastname="Sto", nickname="psto", title="title", company="comp", address="address", homephone="514", mobilephone="515", workphone="516", fax="517",
+                      email="p@gmail.com", homepage="p.com", birthday="18", birthmonth="January", birthyear="1988", anniversaryday="16", anniversarymonth="February", anniversaryyear="1989", address_2="address second",
+                      phone_2="home second", notes="notes")
         self.submit_specified_user(wd)
         self.go_to_home_page(wd)
         self.logout(wd)
@@ -30,11 +32,9 @@ class AddContact(unittest.TestCase):
     def submit_specified_user(self, wd):
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
 
-    def add_user(self, wd, firstname="Pierre", middlename="Nik", lastname="Sto", nickname="psto", title="title",
-                 company="comp", address="address", homephone="514", mobilephone="515", workphone="516", fax="517",
-                 email="p@gmail.com", homepage="p.com", birthday="18", birthmonth="January", birthyear="1988", anniversaryday="16",
-                 anniversarymonth="February", anniversaryyear="1989", address_2="address second", phone_2="home second",
-                 notes="notes"):
+    def add_user(self, wd, firstname, middlename, lastname, nickname, title, company, address, homephone, mobilephone,
+                 workphone, fax, email, homepage, birthday, birthmonth, birthyear, anniversaryday, anniversarymonth,
+                 anniversaryyear, address_2, phone_2, notes):
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(firstname)
