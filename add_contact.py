@@ -10,6 +10,7 @@ class AddContact(unittest.TestCase):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
         self.base_url = "https://www.katalon.com/"
+
         
     
     def test_add_contact(self):
