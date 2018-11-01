@@ -10,8 +10,6 @@ class AddContact(unittest.TestCase):
     def setUp(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
-        self.base_url = "https://www.katalon.com/"
-
     
     def test_add_contact(self):
         wd = self.wd
@@ -115,18 +113,7 @@ class AddContact(unittest.TestCase):
         try: self.wd.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
-    
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.wd.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally: self.accept_next_alert = True
-    
+        
     def tearDown(self):
         self.wd.quit()
 
