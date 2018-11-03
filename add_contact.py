@@ -12,35 +12,37 @@ class AddContact(unittest.TestCase):
         self.wd.implicitly_wait(30)
     
     def test_add_contact(self):
-        wd = self.wd
-        self.open_home_page(wd)
-        self.login(wd, username="admin", password="secret")
-        self.add_user(wd, Contact(firstname="Pierre", middlename="Nik", lastname="Sto", nickname="psto", title="title", company="comp", address="address", homephone="514", mobilephone="515", workphone="516", fax="517",
+        self.open_home_page()
+        self.login(username="admin", password="secret")
+        self.add_user(Contact(firstname="Pierre", middlename="Nik", lastname="Sto", nickname="psto", title="title", company="comp", address="address", homephone="514", mobilephone="515", workphone="516", fax="517",
                       email="p@gmail.com", homepage="p.com", birthday="18", birthmonth="January", birthyear="1988", anniversaryday="16", anniversarymonth="February", anniversaryyear="1989", address_2="address second",
                       phone_2="518", notes="notes"))
-        self.submit_specified_user(wd)
-        self.go_to_home_page(wd)
-        self.logout(wd)
+        self.submit_specified_user()
+        self.go_to_home_page()
+        self.logout()
 
     def test_add_empty_contact(self):
-        wd = self.wd
-        self.open_home_page(wd)
-        self.login(wd, username="admin", password="secret")
-        self.add_user(wd, Contact(firstname="", middlename="", lastname="", nickname="", title="", company="", address="", homephone="", mobilephone="", workphone="", fax="", email="", homepage="", birthday="-", birthmonth="-", birthyear="", anniversaryday="-", anniversarymonth="-", anniversaryyear="", address_2="", phone_2="", notes=""))
-        self.submit_specified_user(wd)
-        self.go_to_home_page(wd)
-        self.logout(wd)
+        self.open_home_page()
+        self.login(username="admin", password="secret")
+        self.add_user(Contact(firstname="", middlename="", lastname="", nickname="", title="", company="", address="", homephone="", mobilephone="", workphone="", fax="", email="", homepage="", birthday="-", birthmonth="-", birthyear="", anniversaryday="-", anniversarymonth="-", anniversaryyear="", address_2="", phone_2="", notes=""))
+        self.submit_specified_user()
+        self.go_to_home_page()
+        self.logout()
 
-    def logout(self, wd):
+    def logout(self):
+        wd = self.wd
         wd.find_element_by_link_text("Logout").click()
 
-    def go_to_home_page(self, wd):
+    def go_to_home_page(self):
+        wd = self.wd
         wd.find_element_by_link_text("home").click()
 
-    def submit_specified_user(self, wd):
+    def submit_specified_user(self):
+        wd = self.wd
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
 
-    def add_user(self, wd, add_new_contact):
+    def add_user(self, add_new_contact):
+        wd = self.wd
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(add_new_contact.firstname)
@@ -94,14 +96,16 @@ class AddContact(unittest.TestCase):
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys(add_new_contact.notes)
 
-    def login(self, wd, username, password):
+    def login(self, username, password):
+        wd = self.wd
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
-    def open_home_page(self, wd):
+    def open_home_page(self):
+        wd = self.wd
         wd.get("http://localhost/addressbook/edit.php")
 
     def is_element_present(self, how, what):
