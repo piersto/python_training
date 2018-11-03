@@ -26,3 +26,4 @@ class Contact:
         self.notes = notes
 
 
+
