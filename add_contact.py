@@ -30,4 +30,3 @@ def test_add_empty_contact(app):
     app.submit_specified_user()
     app.go_to_home_page()
     app.logout()
-
