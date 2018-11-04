@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 from fixture.session import SessionHelper
+from fixture.group import GroupHelper
 
 
 class Application:
@@ -9,6 +10,7 @@ class Application:
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
         self.session = SessionHelper(self)
+        self.group = GroupHelper(self)
 
 
 
