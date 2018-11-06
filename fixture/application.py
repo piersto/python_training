@@ -3,6 +3,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
+from fixture.add_contact import ContactHelper
 
 
 class Application:
@@ -11,7 +12,12 @@ class Application:
         self.wd.implicitly_wait(30)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
+        self.add_contact = ContactHelper(self)
 
+
+    def go_to_home_page(self):
+        wd = self.wd
+        wd.find_element_by_link_text("home").click()
 
 
     def return_to_group_page(self):
@@ -40,7 +46,6 @@ class Application:
     def open_groups_page(self):
             wd = self.wd
             wd.find_element_by_link_text("groups").click()
-
 
 
     def open_home_page(self):

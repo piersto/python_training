@@ -9,6 +9,7 @@ class ContactHelper:
 
     def add_user(self, add_new_contact):
             wd = self.app.wd
+            wd.find_element_by_link_text("add new").click()
             wd.find_element_by_name("firstname").click()
             wd.find_element_by_name("firstname").clear()
             wd.find_element_by_name("firstname").send_keys(add_new_contact.firstname)
