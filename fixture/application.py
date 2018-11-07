@@ -123,7 +123,7 @@ class Application:
         wd.find_element_by_name("notes").send_keys(add_new_contact.notes)
 
 
-    def open_home_page(self):
+    def open_home_page_edit(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/edit.php")
 
