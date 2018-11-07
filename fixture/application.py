@@ -1,6 +1,4 @@
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
 from selenium.webdriver.support.ui import Select
@@ -41,7 +39,6 @@ class Application:
     def open_groups_page(self):
             wd = self.wd
             wd.find_element_by_link_text("groups").click()
-
 
 
     def open_home_page(self):
