@@ -43,8 +43,7 @@ class GroupHelper:
         wd.find_element_by_link_text("groups").click()
 
 
-    def edit_group(self, updated_group_name="New group name", updated_group_header="New group header",
-                   updated_group_footer="New group footer"):
+    def edit_group(self, updated_group_name, updated_group_header, updated_group_footer):
         wd = self.app.wd
         wd.get("http://localhost/addressbook/")
         wd.find_element_by_link_text("groups").click()
