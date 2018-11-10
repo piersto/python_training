@@ -125,14 +125,14 @@ class Application:
         wd.get("http://localhost/addressbook/edit.php")
 
 
-    def edit_contact(self):
+    def edit_contact(self, updated_first_name):
         wd = self.wd
         wd.get("http://localhost/addressbook/index.php")
         wd.find_element_by_xpath("//img[@alt='Details']").click()
         wd.find_element_by_name("modifiy").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys("+1")
+        wd.find_element_by_name("firstname").send_keys(updated_first_name)
         wd.find_element_by_xpath("(//input[@name='update'])[2]").click()
         wd.find_element_by_link_text("home page").click()
 
