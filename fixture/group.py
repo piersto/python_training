@@ -42,7 +42,7 @@ class GroupHelper:
         wd.find_element_by_link_text("groups").click()
 
 
-    def update_group(self, updated_group_name, updated_group_header, updated_group_footer):
+    def update_group(self, updated_group):
         wd = self.app.wd
         wd.get("http://localhost/addressbook/")
         wd.find_element_by_link_text("groups").click()
@@ -50,10 +50,10 @@ class GroupHelper:
         wd.find_element_by_name("edit").click()
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(updated_group_name)
+        wd.find_element_by_name("group_name").send_keys(updated_group.updated_group_name)
         wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(updated_group_header)
+        wd.find_element_by_name("group_header").send_keys(updated_group.updated_group_header)
         wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys(updated_group_footer)
+        wd.find_element_by_name("group_footer").send_keys(updated_group.updated_group_footer)
         wd.find_element_by_name("update").click()
         wd.find_element_by_link_text("group page").click()
