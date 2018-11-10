@@ -125,7 +125,7 @@ class Application:
         wd.get("http://localhost/addressbook/edit.php")
 
 
-    def test_edit_contact(self):
+    def edit_contact(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/index.php")
         wd.find_element_by_xpath("//img[@alt='Details']").click()
