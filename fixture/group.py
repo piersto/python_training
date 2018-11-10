@@ -27,16 +27,6 @@ class GroupHelper:
         self.return_to_group_page()
 
 
-    def delete_first_group(self):
-        wd = self.app.wd
-        self.open_groups_page()
-        # select first group
-        wd.find_element_by_name("selected[]").click()
-        # delete first group
-        wd.find_element_by_name("delete").click()
-        self.return_to_group_page()
-
-
     def open_groups_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("groups").click()
@@ -56,4 +46,10 @@ class GroupHelper:
         wd.find_element_by_name("group_footer").clear()
         wd.find_element_by_name("group_footer").send_keys(updated_group.updated_group_footer)
         wd.find_element_by_name("update").click()
+        wd.find_element_by_link_text("group page").click()
+
+    def delete_first_group(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_name("delete").click()
         wd.find_element_by_link_text("group page").click()
