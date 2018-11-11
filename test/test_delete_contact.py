@@ -1,6 +1,5 @@
-def test_delete_first_contact(app):
-    app.open_home_page_edit()
+def test_delete_contact(app):
     app.session.login(username="admin", password="secret")
-    app.del_contact.(DelContact)
     app.go_to_home_page()
+    app.del_contact()
     app.session.logout()
