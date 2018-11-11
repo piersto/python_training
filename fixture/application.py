@@ -14,6 +14,12 @@ class Application:
         self.group = GroupHelper(self)
         self.delete_contact = DeleteContactHelper(self)
 
+    def is_valid(self):
+        try:
+            self.wd.current_url
+            return True
+        except:
+            return False
 
     def return_to_group_page(self):
             wd = self.wd
