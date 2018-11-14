@@ -20,3 +20,8 @@ class DeleteContactHelper:
             return alert_text
         finally:
             self.accept_next_alert = True
+
+    def count_contacts(self):
+        wd = self.app.wd
+        self.app.open_home_page()
+        return len(wd.find_elements_by_name("selected[]"))

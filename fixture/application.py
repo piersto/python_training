@@ -5,7 +5,6 @@ from fixture.delete_contact import DeleteContactHelper
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 
-
 class Application:
     def __init__(self):
         self.wd = webdriver.Firefox()
